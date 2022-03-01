@@ -2,7 +2,7 @@
 id: ad4k09849lkib6mnfbe6trm
 title: Commands
 desc: ''
-updated: 1646050554476
+updated: 1646142843122
 created: 1646045591055
 ---
 
@@ -60,15 +60,10 @@ gcloud compute instances create gcelab2 --machine-type n1-standard-2 --zone us-c
 ```
 
 - `gcloud compute` allows you to manage your Compute Engine resources in a format that's simpler than the Compute Engine API.
-
 - `instances create` creates a new instance.
-
 - `gcelab2` is the name of the VM.
-
 - The `--machine-type` flag specifies the machine type as `n1-standard-2`.
-
 - The `--zone` flag specifies where the VM is created.
-
 - If you omit the `--zone` flag, the `gcloud` tool can infer your desired zone based on your default properties. Other required instance settings, such as `machine type` and `image`, are set to default values if not specified in the `create` command.
 
 #### SSH into VM
