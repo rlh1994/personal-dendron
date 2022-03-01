@@ -2,12 +2,25 @@
 id: ad4k09849lkib6mnfbe6trm
 title: Commands
 desc: ''
-updated: 1646142843122
+updated: 1646158389076
 created: 1646045591055
 ---
 
 ### General
 To access help type `-h` or `--help` after any command, to exit `help`, press `ctrl+c` or `Q`.
+
+#### Install gcloud
+```bash
+curl https://sdk.cloud.google.com | bash
+exec -l $SHELL
+gcloud init
+```
+
+#### Switch Configuration (user)
+```bash
+gcloud config configurations activate default
+```
+This changes to default, but any user can go there
 
 #### Create Environment Variables
 ```bash
@@ -37,6 +50,11 @@ gcloud config list --all
 #### List Active Project ID
 ```bash
 gcloud config list project
+```
+
+#### Set Project
+```bash
+gcloud config set project PROJECT_ID
 ```
 
 #### Get Values
@@ -88,6 +106,46 @@ exit
 ```
 
 Enable/disable help: `F2`
+
+
+### IAM
+#### View all roles
+```bash
+gcloud iam roles list | grep "name:"
+```
+#### View permissions
+```bash
+gcloud iam roles describe ROLE_NAME
+```
+
+#### Add policy binding
+First install `jq` for reasons not explained
+```bash
+sudo yum -y install epel-release
+sudo yum -y install jq
+```
+
+```bash
+gcloud projects add-iam-policy-binding PROJECT_ID --member user:USER_EMAIL --role=roles/viewer
+```
+or for a service account
+```bash
+gcloud projects add-iam-policy-binding PROJECT_ID --member serviceAccount:SA --role=roles/iam.serviceAccountUser
+```
+
+#### Create new role
+```bash
+gcloud iam roles create devops --project PROJECT_ID --permissions "compute.instances.create,compute.instances.delete,compute.instances.start,compute.instances.stop,compute.instances.update,compute.disks.create,compute.subnetworks.use,compute.subnetworks.useExternalIp,compute.instances.setMetadata,compute.instances.setServiceAccount"
+```
+
+#### Create Service account
+```bash
+gcloud iam service-accounts create devops --display-name devops
+```
+To get the email
+```bash
+gcloud iam service-accounts list  --filter "displayName=devops"
+```
 
 ### Vim
 Open a file in vim
