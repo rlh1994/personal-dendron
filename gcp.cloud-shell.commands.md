@@ -2,7 +2,7 @@
 id: ad4k09849lkib6mnfbe6trm
 title: Commands
 desc: ''
-updated: 1646158389076
+updated: 1646305114448
 created: 1646045591055
 ---
 
@@ -62,6 +62,7 @@ Get zone and region:
 ```bash
 gcloud config get-value compute/zone
 gcloud config get-value compute/region
+gcloud config get-value project
 ```
 
 #### Set Values
