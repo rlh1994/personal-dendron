@@ -1,8 +1,7 @@
 {
   "folders": [
     {
-      "path": "notes",
-      "name": "personal-dendron"
+      "path": "."
     }
   ],
   "settings": {
