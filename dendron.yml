@@ -42,14 +42,11 @@ workspace:
         addBehavior: asOwnDomain
         statusSymbols:
             '': ' '
-            wip: w
-            done: x
+            wip: 🔃
+            done: ✅
             assigned: a
             moved: m
-            blocked: b
-            delegated: l
-            dropped: d
-            pending: 'y'
+            blocked: ⛔
         taskCompleteStatus:
             - done
             - x
